@@ -15,6 +15,8 @@ from flask import Flask
 from flask import request
 from flask import make_response
 
+from nric import NRICValidator
+
 # Flask app should start in global layout
 app = Flask(__name__)
 
@@ -39,13 +41,23 @@ def processRequest(req):
     #if req.get("result").get("action") != "nricsearch":
     #    return {}
     
-    res = makeWebhookResult()
+    result = req.get("result")
+    parameters = result.get("parameters")
+    nric = parameters.get("NRIC")
+    check = NRICValidator.is_valid(NRICValidator,nric)
+    
+    res = makeWebhookResult(check)
     return res
 
 
-def makeWebhookResult():
+def makeWebhookResult(check):
 
-    speech = "Safe and sound!"
+    if check == true:
+        speech = "Safe and sound!"
+    elif check == false:
+        speech = "Fake NRIC?"
+    else:
+        speech = "what in the world"
 
     print("Response:")
     print(speech)
