@@ -56,7 +56,7 @@ def makeWebhookResult(req):
     randomInt = randint(0,5)
     
     
-    if !check:
+    if check==false:
         speech = "Please Enter a Valid NRIC Number!"
     elif randomInt == 0:
         speech = "Citizen is Safe and Sound!"
