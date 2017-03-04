@@ -41,17 +41,17 @@ def processRequest(req):
     if req.get("result").get("action") != "nricsearch":
         return {}
     
+    res = makeWebhookResult(req)
+    return res
+
+
+def makeWebhookResult(req):
+    
     result = req.get("result")
     parameters = result.get("parameters")
     nric = parameters.get("NRIC")
     check = NRICValidator.is_valid(nric)
     
-    res = makeWebhookResult(check)
-    return res
-
-
-def makeWebhookResult(check):
-
     if check:
         speech = "Safe and sound!"
     else:
