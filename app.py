@@ -52,12 +52,10 @@ def processRequest(req):
 
 def makeWebhookResult(check):
 
-    if check == true:
+    if check:
         speech = "Safe and sound!"
-    elif check == false:
-        speech = "Fake NRIC?"
     else:
-        speech = "what in the world" 
+        speech = "Fake NRIC?"
 
     print("Response:")
     print(speech)
