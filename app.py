@@ -15,6 +15,7 @@ from flask import Flask
 from flask import request
 from flask import make_response
 
+from random import randint
 from nric import NRICValidator
 
 # Flask app should start in global layout
@@ -52,10 +53,25 @@ def makeWebhookResult(req):
     nric = parameters.get("NRIC")
     check = NRICValidator.is_valid(nric)
     
-    if check:
-        speech = "Safe and sound!"
+    randomInt = randint(0,5)
+    
+    
+    if !check:
+        speech = "Please Enter a Valid NRIC Number!"
+    elif randomInt == 0:
+        speech = "Citizen is Safe and Sound!"
+    elif randomInt == 1:
+        speech = "Citizen has not got back to us"
+    elif randomInt == 2:
+        speech = "Citizen is not located in crisis area"
+    elif randomInt == 3:
+        speech = "Citizen is hospitalized"
+    elif randomInt == 4:
+        speech = "Citizen is Safe and Sound!"
     else:
-        speech = "Fake NRIC?"
+        speech = "Citizen is not E-Registered"
+        
+    
 
     print("Response:")
     print(speech)
