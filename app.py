@@ -38,8 +38,8 @@ def webhook():
 
 
 def processRequest(req):
-    #if req.get("result").get("action") != "nricsearch":
-    #    return {}
+    if req.get("result").get("action") != "nricsearch":
+        return {}
     
     ##result = req.get("result")
     ##parameters = result.get("parameters")
