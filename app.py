@@ -71,8 +71,10 @@ def makeWebhookResult(req):
         speech = "Citizen is hospitalized"
     elif randomInt == 5:
         speech = "Citizen is Safe and Sound!"
-    else:
+    elif randomInt == 6:
         speech = "Please Enter a Valid NRIC Number!"
+    else
+        speech = "simi"
     
 
     print("Response:")
