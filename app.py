@@ -41,9 +41,9 @@ def processRequest(req):
     if req.get("result").get("action") != "nricsearch":
         return {}
     
-    ##result = req.get("result")
-    ##parameters = result.get("parameters")
-    ##nric = parameters.get("NRIC")
+    result = req.get("result")
+    parameters = result.get("parameters")
+    nric = parameters.get("NRIC")
     check = NRICValidator.is_valid("S9123456A")
     
     res = makeWebhookResult(check)
