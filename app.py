@@ -44,7 +44,7 @@ def processRequest(req):
     result = req.get("result")
     parameters = result.get("parameters")
     nric = parameters.get("NRIC")
-    check = NRICValidator.is_valid("S9123456A")
+    check = NRICValidator.is_valid(nric)
     
     res = makeWebhookResult(check)
     return res
@@ -52,13 +52,12 @@ def processRequest(req):
 
 def makeWebhookResult(check):
 
-    speech = check
-   # if check == true:
-    #    speech = "Safe and sound!"
-    #elif check == false:
-     #   speech = "Fake NRIC?"
-    #else:
-     #   speech = "what in the world" """
+    if check == true:
+        speech = "Safe and sound!"
+    elif check == false:
+        speech = "Fake NRIC?"
+    else:
+        speech = "what in the world" 
 
     print("Response:")
     print(speech)
