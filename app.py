@@ -50,7 +50,7 @@ def makeWebhookResult(req):
     
     result = req.get("result")
     parameters = result.get("parameters")
-    nric = parameters.get("NRIC")
+    nric = parameters.get("NRICNO")
     check = NRICValidator.is_valid(nric)
     
     if check:
