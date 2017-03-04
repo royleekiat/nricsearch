@@ -39,7 +39,7 @@ def processRequest(req):
     #if req.get("result").get("action") != "nricsearch":
     #    return {}
     
-    res = makeWebhookResult(data)
+    res = makeWebhookResult()
     return res
 
 
