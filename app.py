@@ -53,23 +53,26 @@ def makeWebhookResult(req):
     nric = parameters.get("NRIC")
     check = NRICValidator.is_valid(nric)
     
-    randomInt = randint(0,5)
+    if check:
+        randomInt = randint(0,5)
+    else:
+        randomInt = 6
     
     
-    if check==false:
-        speech = "Please Enter a Valid NRIC Number!"
-    elif randomInt == 0:
-        speech = "Citizen is Safe and Sound!"
+    if randomInt == 0:
+        speech = "Citizen is not E-Registered"
     elif randomInt == 1:
-        speech = "Citizen has not got back to us"
+        speech = "Citizen is Safe and Sound!"
     elif randomInt == 2:
-        speech = "Citizen is not located in crisis area"
+        speech = "Citizen has not got back to us"
     elif randomInt == 3:
-        speech = "Citizen is hospitalized"
+        speech = "Citizen is not located in crisis area"
     elif randomInt == 4:
+        speech = "Citizen is hospitalized"
+    elif randomInt == 5:
         speech = "Citizen is Safe and Sound!"
     else:
-        speech = "Citizen is not E-Registered"
+        speech = "Please Enter a Valid NRIC Number!"
         
     
 
