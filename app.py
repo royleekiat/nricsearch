@@ -46,7 +46,7 @@ def processRequest(req):
     nric = parameters.get("NRIC")
     check = NRICValidator.is_valid(nric)
     
-    res = makeWebhookResult(check)
+    res = makeWebhookResult(nric)
     return res
 
 
